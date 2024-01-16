@@ -19,6 +19,9 @@ public class PropertyServiceImpl implements PropertyService {
     @Value("${pms.dummy:}")
     private String dummy;
 
+    @Value("${spring.datasource.url:}")
+    private String dbUrl;
+
     @Autowired
     private PropertyRepository propRepo;
 
@@ -39,6 +42,7 @@ public class PropertyServiceImpl implements PropertyService {
     public List<PropertyDTO> getAllProperties() {
 
         System.out.println("This is from inside service " + dummy);
+        System.out.println("This is from inside service " + dbUrl);
 
         List<PropertyEntity> listofProperties = (List<PropertyEntity>) propRepo.findAll();
         List<PropertyDTO> propList = new ArrayList<>();
