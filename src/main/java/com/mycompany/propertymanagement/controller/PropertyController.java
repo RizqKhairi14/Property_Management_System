@@ -41,8 +41,8 @@ public class PropertyController {
     @GetMapping("/properties")
     public ResponseEntity<List<PropertyDTO>> getAllProperties(){
 
-        System.out.println(dummy);
-        System.out.println(dbUrl);
+//        System.out.println(dummy);
+//        System.out.println(dbUrl);
 
         List<PropertyDTO> propertyList = PropertyService.getAllProperties();
         ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(propertyList, HttpStatus.OK);
@@ -77,24 +77,6 @@ public class PropertyController {
 
     }
 
-    @PatchMapping("/properties/update-owner-name/{propertyId}")
-    public ResponseEntity<PropertyDTO> updatePropOwnerName(@RequestBody PropertyDTO updatePropOwnerName, @PathVariable Long propertyId){
-
-        updatePropOwnerName = PropertyService.updatePropOwnerName(updatePropOwnerName, propertyId);
-        ResponseEntity<PropertyDTO> responseEntity = new ResponseEntity<>(updatePropOwnerName, HttpStatus.OK);
-        return responseEntity;
-
-    }
-
-    @PatchMapping("/properties/update-owner-email/{propertyId}")
-    public ResponseEntity<PropertyDTO> updatePropOwnerEmail(@RequestBody PropertyDTO updatePropOwnerEmail, @PathVariable Long propertyId){
-
-        updatePropOwnerEmail = PropertyService.updatePropOwnerEmail(updatePropOwnerEmail, propertyId);
-        ResponseEntity<PropertyDTO> responseEntity = new ResponseEntity<>(updatePropOwnerEmail, HttpStatus.OK);
-        return responseEntity;
-
-    }
-
     @PatchMapping("/properties/update-prop-price/{propertyId}")
     public ResponseEntity<PropertyDTO> updatePropPrice(@RequestBody PropertyDTO updatePropPrice, @PathVariable Long propertyId){
 
@@ -114,10 +96,10 @@ public class PropertyController {
     }
 
     @DeleteMapping("/properties/{propertyId}")
-    public ResponseEntity deleteProperty(@PathVariable Long propertyId){
+    public ResponseEntity <PropertyDTO> deleteProperty(@PathVariable Long propertyId){
 
         PropertyService.deleteProperty(propertyId);
-        ResponseEntity responseEntity = new ResponseEntity(null, HttpStatus.NO_CONTENT);
+        ResponseEntity <PropertyDTO> responseEntity = new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         return responseEntity;
     }
 
