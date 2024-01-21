@@ -5,6 +5,6 @@ import com.mycompany.propertymanagement.DTO.UserDTO;
 public interface UserService {
 
     UserDTO register (UserDTO userDTO);
-    UserDTO login (String email, String passwaord);
+    UserDTO login (String email, String password);
 
 }
