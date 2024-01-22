@@ -5,7 +5,7 @@ Initial Git & Github Setup
 2. git add .
 3. git commit -m "initial commit"
 4. git remote add origin https://github.com/RizqKhairi14/Property_Management_System.git
-5. git remote set-url origin https://RizqKhairi14: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@github.com/RizqKhairi14/Property_Management_System.git
+5. git remote set-url origin https://RizqKhairi14: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@github.com/RizqKhairi14/Property_Management_System.git
 6. git push --set-upstream origin master
 
 Next push
