@@ -50,6 +50,15 @@ public class PropertyController {
         return responseEntity;
     }
 
+    @GetMapping("/properties/users/{userId}")
+    public ResponseEntity<List<PropertyDTO>> getAllPropertiesForUser(@PathVariable ("userId") Long userId){
+
+        List<PropertyDTO> propertyList = PropertyService.getAllPropertiesForUser(userId);
+        ResponseEntity<List<PropertyDTO>> responseEntity = new ResponseEntity<>(propertyList, HttpStatus.OK);
+
+        return responseEntity;
+    }
+
     @PutMapping("/properties/{propertyId}")
     public ResponseEntity<PropertyDTO> updateProperty(@RequestBody PropertyDTO updateProp, @PathVariable Long propertyId){
 

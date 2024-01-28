@@ -28,4 +28,10 @@ public class UserDTO {
     @Size(min = 7, max = 50, message = "Email must at least consist of 7 character ")
     private String password;
 
+    private String houseNo;
+    private String street;
+    private String city;
+    private String postalCode;
+    private String country;
+
 }

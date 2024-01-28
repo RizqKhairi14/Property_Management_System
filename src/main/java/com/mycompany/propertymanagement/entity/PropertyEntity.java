@@ -3,6 +3,7 @@ package com.mycompany.propertymanagement.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -21,6 +22,11 @@ public class PropertyEntity {
     private String description;
     private Double price;
     private String address;
+
+    @ManyToOne//(fetch = FetchType.LAZY)
+    //Lazy = it will not fetch the other user_id data while its fetching the property data (default EAGER)
+    @JoinColumn(name = "USER_ID", nullable = false)
+    UserEntity userEntity = new UserEntity();
 
 
 }
